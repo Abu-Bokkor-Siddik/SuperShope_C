@@ -9,29 +9,29 @@ const router = createBrowserRouter([
     path: '/',
     errorElement:<h1>hello error</h1>,
     element: <App></App>,
-    // children: [
-    //   {
-    //     path: '/',
-    //     element: <Shop></Shop>
-    //   },
-    //   {
-    //     path: 'orders',
-    //     element: <Orders></Orders>,
-    //     loader: cartProductsLoader
-    //   },
-    //   {
-    //     path: 'inventory',
-    //     element: <Inventory></Inventory>
-    //   },
-    //   {
-    //     path:'checkout',
-    //     element: <Checkout></Checkout>
-    //   },
-    //   {
-    //     path: 'login',
-    //     element: <Login></Login>
-    //   }
-    // ]
+    children: [
+      {
+        path: '/',
+        element: <h1>home</h1>
+      },
+      {
+        path: 'orders',
+        element: <h1>Orders</h1>,
+        // loader: cartProductsLoader
+      },
+      {
+        path: 'inventory',
+        element: <h2>inventory</h2>
+      },
+      {
+        path:'checkout',
+        element: <h2>check</h2>
+      },
+      {
+        path: 'login',
+        element: <h4>Login</h4>
+      }
+    ]
   }
 ])
 
