@@ -4,10 +4,10 @@ import Footer from "../Components/Footer";
 
 const Home = () => {
   return (
-    <div>
-      <Navbar></Navbar>
+    <div className="bg-black min-w-96 ">
+      <Navbar className=""></Navbar>
       <Outlet></Outlet>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 };

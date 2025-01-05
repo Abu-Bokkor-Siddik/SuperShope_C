@@ -26,14 +26,13 @@ const Navbar = () => {
           <div
             style={
               sroll
-                ? { backdropFilter: "blur(50px)",
-             }
+                ? { backdropFilter: "blur(50px)" }
                 : { backgroundColor: "transparent" }
             }
             className="w-full  h-auto lg:h-20 navbar   "
           >
             {/**navbar 1200px */}
-            <div className=" w-full  lg:max-w-[1200px]  mx-auto ">
+            <div className=" w-full  lg:max-w-[1200px] bg-black  mx-auto ">
               <div className="flex-none lg:hidden">
                 <label
                   htmlFor="my-drawer-3"
@@ -68,16 +67,20 @@ const Navbar = () => {
                   {/* Navbar menu content here */}
 
                   <div className="flex  gap-10 justify-center items-center  ">
-                   <NavLink  className="text-lg text-[#06283D]  font-semibold" to="/">Home</NavLink>
-                    <NavLink 
+                    <NavLink
+                      className="text-lg text-[#06283D]  font-semibold"
+                      to="/"
+                    >
+                      Home
+                    </NavLink>
+                    <NavLink
                       className="text-lg text-[#06283D]  font-semibold"
                       to="/about"
                     >
                       ABOUT
                     </NavLink>
-                    
-                    
-                    <NavLink 
+
+                    <NavLink
                       className="text-lg text-[#06283D]  font-semibold"
                       to="/contact"
                     >
