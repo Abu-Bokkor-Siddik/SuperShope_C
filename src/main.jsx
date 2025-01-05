@@ -5,14 +5,20 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import Root from './pages/Root.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     errorElement:<h1>hello error</h1>,
-    element: <Home></Home>,
+    element: <Root></Root>,
     children: [
       
+      {
+        path: '/',
+        element: <Home></Home>
+        // loader: cartProductsLoader
+      },
       {
         path: 'about',
         element: <About></About>

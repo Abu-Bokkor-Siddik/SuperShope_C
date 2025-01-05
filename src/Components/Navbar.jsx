@@ -32,7 +32,7 @@ const Navbar = () => {
             className="w-full  h-auto lg:h-20 navbar   "
           >
             {/**navbar 1200px */}
-            <div className=" w-full  lg:max-w-[1200px] bg-black  mx-auto ">
+            <div className=" w-full  lg:max-w-[1200px]   mx-auto ">
               <div className="flex-none lg:hidden">
                 <label
                   htmlFor="my-drawer-3"
