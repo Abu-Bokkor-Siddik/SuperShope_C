@@ -106,25 +106,22 @@ const Navbar = () => {
           <div className="menu bg-[#DFF6FF] p-4 w-80 min-h-full ">
             {/* Sidebar content here */}
             <div className="flex flex-col gap-2">
-            <NavLink
-                      className="text-lg text-[#06283D]  font-semibold"
-                      to="/"
-                    >
-                      Home
-                    </NavLink>
-                    <NavLink
-                      className="text-lg text-[#06283D]  font-semibold"
-                      to="/about"
-                    >
-                      ABOUT
-                    </NavLink>
+              <NavLink className="text-lg text-[#06283D]  font-semibold" to="/">
+                Home
+              </NavLink>
+              <NavLink
+                className="text-lg text-[#06283D]  font-semibold"
+                to="/about"
+              >
+                ABOUT
+              </NavLink>
 
-                    <NavLink
-                      className="text-lg text-[#06283D]  font-semibold"
-                      to="/contact"
-                    >
-                      Contact
-                    </NavLink>
+              <NavLink
+                className="text-lg text-[#06283D]  font-semibold"
+                to="/contact"
+              >
+                Contact
+              </NavLink>
             </div>
           </div>
         </div>
