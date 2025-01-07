@@ -6,11 +6,12 @@ import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Root from './pages/Root.jsx'
+import Error from './Components/Error.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    errorElement:<h1>hello error</h1>,
+    errorElement:<Error></Error>,
     element: <Root></Root>,
     children: [
       
