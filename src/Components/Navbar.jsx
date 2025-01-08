@@ -58,7 +58,7 @@ const Navbar = () => {
                 {/**here is logo and nav bar  */}
                 <div className="flex   lg:justify-start items-center ">
                   <pre className="text-2xl  text-[#06283D] font-bold">
-                    𝓼𝓲𝓭𝓭𝓲𝓴.𝓭𝓮𝓿
+                    𝓼𝓲𝓭𝓭𝓲𝓴.𝓼𝓱𝓸𝓹𝓮
                   </pre>
                 </div>
               </div>
@@ -77,7 +77,7 @@ const Navbar = () => {
                       className="text-lg text-[#06283D]  font-semibold"
                       to="/about"
                     >
-                      ABOUT
+                      About
                     </NavLink>
 
                     <NavLink

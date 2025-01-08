@@ -8,7 +8,7 @@ const MainLayouts = () => {
     <div>
       <div>
      <Navbar className=""></Navbar>
-      <div className="min-h-[850px]">
+      <div className="min-h-screen">
       <Outlet></Outlet>
       </div>
       <Footer></Footer>
