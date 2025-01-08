@@ -3,16 +3,18 @@ import Navbar from "../Components/Navbar"
 import Footer from "../Components/Footer"
 
 
-const Root = () => {
+const MainLayouts = () => {
   return (
     <div>
+      <div>
      <Navbar className=""></Navbar>
       <div className="min-h-[850px]">
       <Outlet></Outlet>
       </div>
       <Footer></Footer>
     </div>
+    </div>
   )
 }
 
-export default Root
+export default MainLayouts
