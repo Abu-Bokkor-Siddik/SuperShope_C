@@ -9,7 +9,7 @@ const Home = () => {
       </div>
       <div>
         <h1 className=" text-center font-semibold text-3xl mx-auto ">Features Products</h1>
-        <div className="flex justify-between">
+        <div className="flex justify-between my-6">
           <Cart></Cart>
           <Cart></Cart>
           <Cart></Cart>
