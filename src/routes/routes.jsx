@@ -6,6 +6,8 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import MainLayouts from "../layoutes/MainLayouts";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 export const router = createBrowserRouter([
     {
@@ -29,12 +31,12 @@ export const router = createBrowserRouter([
           element: <Contact></Contact>
         },
         {
-          path:'checkout',
-          element: <h2>check</h2>
+          path:'register',
+          element: <Register></Register>
         },
         {
           path: 'login',
-          element: <h4>Login</h4>
+          element: <Login></Login>
         }
       ]
     }

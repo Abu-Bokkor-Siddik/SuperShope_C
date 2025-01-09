@@ -9,7 +9,7 @@ const Home = () => {
       </div>
       <div>
         <h1 className=" text-center my-5 font-semibold text-3xl mx-auto ">Features Products</h1>
-        <div className="flex my-5 flex-col lg:flex-row justify-between gap-5 mx-5">
+        <div className="flex container mx-5 my-5 flex-col lg:flex-row justify-between gap-5 ">
           <Cart></Cart>
           <Cart></Cart>
           <Cart></Cart>
