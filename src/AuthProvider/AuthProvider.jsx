@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
 import { createContext, useEffect, useState } from "react"
@@ -63,9 +65,9 @@ const AuthProvider = ({children}) => {
 },[])
  const authInfo = {google,register,logout,logins,user,loading,setloading}
   return (
-    <div>
-      AuthProvider
-    </div>
+    <AuthContext.Provider value={authInfo}>
+      {children}
+    </AuthContext.Provider>
   )
 }
 
