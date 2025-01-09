@@ -1,6 +1,12 @@
+// import { useContext } from "react";
 import { Link } from "react-router";
+import useAuth from "../Hooks/useAuth";
+// import AuthProvider from "../AuthProvider/AuthProvider";
 
 const Register = () => {
+  // const auth = useContext(AuthProvider)
+  const user = useAuth()
+  console.log(user)
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">

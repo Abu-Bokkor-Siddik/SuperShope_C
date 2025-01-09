@@ -1,16 +1,21 @@
-/* eslint-disable no-undef */
-// require('dotenv').config({ path: '.env.local' });
-console.log(import.meta.env.Vite_apiKey);
-
 import { initializeApp } from "firebase/app";
+
+// Use `import.meta.env` for environment variables in Vite.
 const firebaseConfig = {
-  apiKey:import.meta.env.Vite_apiKey,
-  authDomain:import.meta.env.Vite_authDomain,
-  projectId:import.meta.env.Vite_projectId,
-  storageBucket:import.meta.env.Vite_storageBucket,
-  messagingSenderId:import.meta.env.Vite_messagingSenderId,
-  appId:import.meta.env.Vite_appId,
+  apiKey:"AIzaSyAe-WFTojLv6CVtCqhdUZ4DHmc8941yN88",
+  authDomain:"super-shope.firebaseapp.com",
+  projectId:"super-shope",
+  storageBucket:"super-shope.firebasestorage.app",
+  messagingSenderId:"904517440556",
+  appId:"1:904517440556:web:feffda3114539947c26d89",
 };
 
-console.log(firebaseConfig)
-export  const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+console.log("Environment Variables:", import.meta.env);
+
+console.log(import.meta.env.VITE_apiKey,'here');
+
+console.log("Firebase Config:", firebaseConfig);
+
+export { app };
