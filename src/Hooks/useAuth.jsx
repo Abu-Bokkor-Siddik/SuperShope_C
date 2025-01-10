@@ -3,7 +3,7 @@ import AuthProvider from "../AuthProvider/AuthProvider"
 
 
 const useAuth = () => {
-    const auth = useContext(AuthProvider)
+    // const auth = useContext(AuthProvider)
   return (
     <div>
       

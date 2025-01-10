@@ -4,7 +4,7 @@ import './index.css'
 import { RouterProvider } from 'react-router'
 
 import { router } from './routes/routes.jsx'
-import AuthProvider from './AuthProvider/AuthProvider.jsx'
+import AuthProvider, { AuthContexts } from './AuthProvider/AuthProvider.jsx'
 
 
 

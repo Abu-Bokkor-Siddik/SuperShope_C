@@ -3,18 +3,26 @@
 import { Link } from "react-router";
 import useAuth from "../Hooks/useAuth";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import AuthProvider, { AuthContexts } from "../AuthProvider/AuthProvider";
 // import AuthProvider from "../AuthProvider/AuthProvider";
 
 const Register = () => {
   // const auth = useContext(AuthProvider)
-  const {registers} = useAuth()
+  // const auth = useAuth()
+  const {registerWithEmail} = useContext(AuthContexts)
+  // console.log(auth)
   const {
     register,
     handleSubmit,
     // watch,
     formState: { errors },
   } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => {
+    registerWithEmail(data?.email,data?.password)
+    // console.log(auth)
+    console.log(data)
+  }
   // console.log(register)
   return (
     <div>

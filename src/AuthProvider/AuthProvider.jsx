@@ -5,7 +5,7 @@
 import { createContext, useEffect, useState } from "react"
 import { app } from "../../firebase"
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
-export const AuthContext= createContext(null)
+export const AuthContexts= createContext(null)
 const auth = getAuth(app)
 console.log(auth,'here auth')
 
@@ -16,10 +16,11 @@ const AuthProvider = ({children}) => {
     const [lodings,setloadings]=useState(false)
 
  // register 
- const registers = (email,password)=>{
+ const registerWithEmail = (email,password)=>{
     setloading(true)
     return createUserWithEmailAndPassword(auth,email,password)
 }
+
  // login 
  const logins = (email,password)=>{
     setloading(true)
@@ -44,6 +45,7 @@ const AuthProvider = ({children}) => {
     const subricribe = onAuthStateChanged(auth, (currect) => {
         // const logeruser = {email:currect?.email}
         setuser(currect)
+        console.log(currect,"currectuser")
         setloading(false)
         // console.log('user ',logeruser)
         // if(currect){
@@ -63,11 +65,12 @@ const AuthProvider = ({children}) => {
         subricribe()
     }
 },[])
- const authInfo = {google,registers,logout,logins,user,loading,setloading}
+ const authInfo = {google,registerWithEmail,logout,logins,user,loading,setloading}
+ console.log(authInfo,'authInfo here')
   return (
-    <AuthContext.Provider value={authInfo}>
+    <AuthContexts.Provider value={authInfo}>
       {children}
-    </AuthContext.Provider>
+    </AuthContexts.Provider>
   )
 }
 
