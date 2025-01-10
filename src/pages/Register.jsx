@@ -1,19 +1,28 @@
+/* eslint-disable no-undef */
 // import { useContext } from "react";
 import { Link } from "react-router";
 import useAuth from "../Hooks/useAuth";
+import { useForm } from "react-hook-form";
 // import AuthProvider from "../AuthProvider/AuthProvider";
 
 const Register = () => {
   // const auth = useContext(AuthProvider)
-  const user = useAuth()
-  console.log(user)
+  const {registers} = useAuth()
+  const {
+    register,
+    handleSubmit,
+    // watch,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+  // console.log(register)
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           {/* onSubmit={formdata} */}
-            <form  className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)}  className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -23,8 +32,10 @@ const Register = () => {
                   type="text"
                   placeholder="name"
                   className="input input-bordered"
-                  required
+                 {...register("name",{required:true})}
+                 
                 />
+                {errors?.name && <p className="text-red-400">Name is required</p>}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -35,8 +46,9 @@ const Register = () => {
                   type="text"
                   placeholder="photo url"
                   className="input input-bordered"
-                  required
+                  {...register("photo",{required:true})}
                 />
+                {errors?.photo&& <p className="text-red-400">photo is required</p>}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -47,8 +59,9 @@ const Register = () => {
                   type="email"
                   placeholder="email"
                   className="input input-bordered"
-                  required
+                  {...register("email",{required:true})}
                 />
+                {errors?.email && <p className="text-red-400">Email is required</p>}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -59,8 +72,10 @@ const Register = () => {
                   type="password"
                   placeholder="password"
                   className="input input-bordered"
-                  required
+                  {...register("password",{required:true,minLength:8})}
                 />
+                {errors?.password?.type==='required' && <p className="text-red-400">Password is required</p>}
+                {errors?.password?.type==='minLength' && <p className="text-red-400">Password must be 8 letter</p>}
               </div>
               <p>
                 If you hava an account{" "}

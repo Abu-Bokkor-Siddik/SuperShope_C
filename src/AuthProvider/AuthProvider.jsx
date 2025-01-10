@@ -16,7 +16,7 @@ const AuthProvider = ({children}) => {
     const [lodings,setloadings]=useState(false)
 
  // register 
- const register = (email,password)=>{
+ const registers = (email,password)=>{
     setloading(true)
     return createUserWithEmailAndPassword(auth,email,password)
 }
@@ -63,7 +63,7 @@ const AuthProvider = ({children}) => {
         subricribe()
     }
 },[])
- const authInfo = {google,register,logout,logins,user,loading,setloading}
+ const authInfo = {google,registers,logout,logins,user,loading,setloading}
   return (
     <AuthContext.Provider value={authInfo}>
       {children}
