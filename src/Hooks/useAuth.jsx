@@ -1,12 +1,11 @@
-import { useContext } from "react"
-import AuthProvider from "../AuthProvider/AuthProvider"
+
 
 
 const useAuth = () => {
     // const auth = useContext(AuthProvider)
   return (
     <div>
-      
+      <h1>hooks</h1>
     </div>
   )
 }
