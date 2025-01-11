@@ -4,7 +4,7 @@ import { AuthContexts } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [sroll, setScroll] = useState(false);
-  const {user}=useContext(AuthContexts)
+  const { user, logout } = useContext(AuthContexts);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -19,6 +19,11 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const logOut = () => {
+    logout()
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="z-30 ">
       <div className="drawer z-50  fixed   ">
@@ -87,32 +92,34 @@ const Navbar = () => {
                     >
                       Contact
                     </NavLink>
-                    
-                    {user?<NavLink
-                      className="text-lg text-[#06283D]  font-semibold"
-                      to="login"
-                    >
-                      LogOut
-                    </NavLink>:<NavLink
-                      className="text-lg text-[#06283D]  font-semibold"
-                      to="login"
-                    >
-                      Login
-                    </NavLink>}
+
+                    {user ? (
+                      <NavLink
+                        onClick={logOut}
+                        className="text-lg text-[#06283D]  font-semibold"
+                        to="login"
+                      >
+                        LogOut
+                      </NavLink>
+                    ) : (
+                      <NavLink
+                        className="text-lg text-[#06283D]  font-semibold"
+                        to="login"
+                      >
+                        Login
+                      </NavLink>
+                    )}
                   </div>
-                  
-                 
+
                   {/** user name and profile would be here  */}
 
                   <div className="flex gap-3 justify-center items-center  "></div>
                 </div>
               </div>
               {/**end */}
-              
             </div>
           </div>
           {/* Page content here */}
-          
         </div>
         <div className="drawer-side  ">
           <label
