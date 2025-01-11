@@ -35,6 +35,7 @@ const AuthProvider = ({ children }) => {
     setloading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  // console.log(logins,'user login info')
   // logout
   const logout = () => {
     setloading(true);
@@ -82,7 +83,7 @@ const AuthProvider = ({ children }) => {
     loading,
     setloading,
   };
-  console.log(authInfo, "authInfo here");
+  // console.log(authInfo, "authInfo here");
   return (
     <AuthContexts.Provider value={authInfo}>{children}</AuthContexts.Provider>
   );

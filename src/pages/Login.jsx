@@ -1,16 +1,22 @@
 import { Link } from "react-router";
-import useAuth from "../Hooks/useAuth";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContexts } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const {registers} = useAuth()
+  const { logins,user } = useContext(AuthContexts);
+  console.log(user,'user here')
+  // console.log(logins)
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm()
-  const onSubmit = (data) => console.log(data)
+  } = useForm();
+  const onSubmit = (data) =>{
+ logins(data?.email,data?.password)
+    //  console.log(data)
+    };
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
@@ -27,9 +33,11 @@ const Login = () => {
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
-                {...register("email",{required:true})}
+                {...register("email", { required: true })}
               />
-              {errors?.email && <p className="text-red-400">Email is required</p>}
+              {errors?.email && (
+                <p className="text-red-400">Email is required</p>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -40,10 +48,14 @@ const Login = () => {
                 type="password"
                 placeholder="password"
                 className="input input-bordered"
-                {...register("password",{required:true,minLength:8})}
+                {...register("password", { required: true, minLength: 8 })}
               />
-                {errors?.password?.type==='required' && <p className="text-red-400">Password is required</p>}
-                {errors?.password?.type==='minLength' && <p className="text-red-400">Password must be 8 letter</p>}
+              {errors?.password?.type === "required" && (
+                <p className="text-red-400">Password is required</p>
+              )}
+              {errors?.password?.type === "minLength" && (
+                <p className="text-red-400">Password must be 8 letter</p>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -54,11 +66,19 @@ const Login = () => {
                 type="password"
                 placeholder="conformPassword"
                 className="input input-bordered"
-                {...register("conformPassword",{required:true,minLength:8,validate:(value)=>{if(watch('password')!=value){
-                  return 'Your password not match.'
-                }}})}
+                {...register("conformPassword", {
+                  required: true,
+                  minLength: 8,
+                  validate: (value) => {
+                    if (watch("password") != value) {
+                      return "Your password not match.";
+                    }
+                  },
+                })}
               />
-               {errors?.conformPassword && <p className="text-red-400">Password is not match</p>}
+              {errors?.conformPassword && (
+                <p className="text-red-400">Password is not match</p>
+              )}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
@@ -72,7 +92,9 @@ const Login = () => {
               </Link>
             </p>
             <div className="form-control mt-6">
-              <button type='submit' className="btn btn-primary">Login</button>
+              <button type="submit" className="btn btn-primary">
+                Login
+              </button>
             </div>
           </form>
           {/* <button onClick={googlelog} className='btn btn-primary mx-8'>google</button> */}
