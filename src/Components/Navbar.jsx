@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router";
+import { AuthContexts } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [sroll, setScroll] = useState(false);
+  const {user}=useContext(AuthContexts)
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -79,7 +81,6 @@ const Navbar = () => {
                     >
                       About
                     </NavLink>
-
                     <NavLink
                       className="text-lg text-[#06283D]  font-semibold"
                       to="/contact"
@@ -94,15 +95,18 @@ const Navbar = () => {
                     </NavLink>
                     
                   </div>
+                 
                   {/** user name and profile would be here  */}
 
                   <div className="flex gap-3 justify-center items-center  "></div>
                 </div>
               </div>
               {/**end */}
+              
             </div>
           </div>
           {/* Page content here */}
+          
         </div>
         <div className="drawer-side  ">
           <label
