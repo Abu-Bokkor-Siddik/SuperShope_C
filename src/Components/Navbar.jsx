@@ -87,14 +87,20 @@ const Navbar = () => {
                     >
                       Contact
                     </NavLink>
-                    <NavLink
+                    
+                    {user?<NavLink
+                      className="text-lg text-[#06283D]  font-semibold"
+                      to="login"
+                    >
+                      LogOut
+                    </NavLink>:<NavLink
                       className="text-lg text-[#06283D]  font-semibold"
                       to="login"
                     >
                       Login
-                    </NavLink>
-                    
+                    </NavLink>}
                   </div>
+                  
                  
                   {/** user name and profile would be here  */}
 
