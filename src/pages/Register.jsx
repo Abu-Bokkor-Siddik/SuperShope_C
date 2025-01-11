@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 // import { useContext } from "react";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
@@ -21,6 +21,7 @@ const Register = () => {
   const onSubmit = (data) => {
     registerWithEmail(data?.email, data?.password);
     // console.log(auth)
+    Navigate('/')
     console.log(data);
   };
   // console.log(register)

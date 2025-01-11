@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { Navigate, NavLink } from "react-router";
 import { AuthContexts } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
@@ -23,6 +23,7 @@ const Navbar = () => {
     logout()
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+      Navigate('/')
   };
   return (
     <div className="z-30 ">

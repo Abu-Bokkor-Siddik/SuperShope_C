@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContexts } from "../AuthProvider/AuthProvider";
@@ -15,6 +15,7 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) =>{
  logins(data?.email,data?.password)
+ Navigate('/')
     //  console.log(data)
     };
   return (
