@@ -14,9 +14,10 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 export const AuthContexts = createContext(null);
 const auth = getAuth(app);
-console.log(auth, "here auth");
+// console.log(auth, "here auth");
 
 const AuthProvider = ({ children }) => {
   const [loading, setloading] = useState(true);
@@ -52,23 +53,16 @@ const AuthProvider = ({ children }) => {
   // onauthState
   useEffect(() => {
     const subricribe = onAuthStateChanged(auth, (currect) => {
-      // const logeruser = {email:currect?.email}
+      const logeruser = {email:currect?.email}
       setuser(currect);
-      console.log(currect, "currectuser");
+      console.log(currect,logeruser, "currectuser");
       setloading(false);
       // console.log('user ',logeruser)
-      // if(currect){
-
-      //     axios.post('https://assignment-pink-eight.vercel.app/jwt1',logeruser,{withCredentials:true})
-      //     .then(res => {
-      //       console.log(res.data)})
-      // }else{
-      //     axios.post('https://assignment-pink-eight.vercel.app/logout',logeruser,{withCredentials:true})
-
-      //     .then(res => {
-      //       console.log(res.data)})
-
-      //    }
+      if(currect){
+          axios.post('http://localhost:3000/authentication',logeruser,{withCredentials:true})
+          .then(res => {
+            console.log(res.data)})
+      }
     });
     return () => {
       subricribe();
