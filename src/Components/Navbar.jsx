@@ -21,9 +21,10 @@ const Navbar = () => {
   }, []);
   const logOut = () => {
     logout()
-      .then((res) => console.log(res))
+      // eslint-disable-next-line no-unused-vars
+      .then((res) => Navigate('/'))
       .catch((err) => console.log(err));
-      Navigate('/')
+      
   };
   return (
     <div className="z-30 ">
