@@ -20,9 +20,14 @@ const Register = () => {
   } = useForm();
   const onSubmit = (data) => {
     registerWithEmail(data?.email, data?.password);
-    // console.log(auth)
-    Navigate('/')
-    console.log(data);
+    const email = data?.email;
+    const role = "buyer";
+    const status = "pending";
+    const wishlist = [];
+    const userInfo = {email,role,status,wishlist}
+    console.log(userInfo,'info here')
+   
+    // console.log(data);
   };
   // console.log(register)
   return (
