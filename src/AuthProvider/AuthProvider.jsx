@@ -56,13 +56,22 @@ const AuthProvider = ({ children }) => {
       const logeruser = {email:currect?.email}
       setuser(currect);
       console.log(currect,logeruser, "currectuser");
-      setloading(false);
+      
       // console.log('user ',logeruser)
       if(currect){
           axios.post('http://localhost:3000/authentication',logeruser,{withCredentials:true})
           .then(res => {
-            console.log(res.data)})
-      }
+            if (res?.data) {
+              localStorage.setItem('access_token',res?.data?.token)
+              setloading(false);
+            }})
+      }else{
+        axios.post('something',logeruser,{withCredentials:true})
+
+        .then(res => {
+          console.log(res.data)})
+
+       }
     });
     return () => {
       subricribe();
