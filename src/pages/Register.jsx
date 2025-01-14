@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 // import { useContext } from "react";
-import { Link, Navigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import  { AuthContexts } from "../AuthProvider/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 // import AuthProvider from "../AuthProvider/AuthProvider";
 
 const Register = () => {
@@ -13,6 +14,7 @@ const Register = () => {
   // const auth = useAuth()
   const { registerWithEmail } = useContext(AuthContexts);
   // console.log(auth)
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -29,6 +31,14 @@ const Register = () => {
     registerWithEmail(data?.email, data?.password).then(()=>{
       axios.post('http://localhost:3000/users',userInfo)
       .then(res => {
+        if (res?.data?.insertedId) {
+          Swal.fire({
+            title: "Register Successfully",
+            icon: "success",
+            draggable: true
+          });
+        }
+        navigate("/")
         console.log(res.data,'data')
         })
     })
