@@ -5,6 +5,7 @@ import { Link, Navigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import  { AuthContexts } from "../AuthProvider/AuthProvider";
+import axios from "axios";
 // import AuthProvider from "../AuthProvider/AuthProvider";
 
 const Register = () => {
@@ -19,12 +20,18 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    registerWithEmail(data?.email, data?.password);
+    
     const email = data?.email;
     const role = "buyer";
     const status = "pending";
     const wishlist = [];
     const userInfo = {email,role,status,wishlist}
+    registerWithEmail(data?.email, data?.password).then(()=>{
+      axios.post('http://localhost:3000/users',userInfo)
+      .then(res => {
+        console.log(res.data,'data')
+        })
+    })
     console.log(userInfo,'info here')
    
     // console.log(data);
