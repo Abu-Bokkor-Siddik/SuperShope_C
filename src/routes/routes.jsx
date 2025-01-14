@@ -8,6 +8,8 @@ import Contact from "../pages/Contact";
 import MainLayouts from "../layoutes/MainLayouts";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import DashBoardLayout from "../layoutes/DashBoardLayout";
+import Private from "./private/Private";
 
 export const router = createBrowserRouter([
     {
@@ -28,7 +30,7 @@ export const router = createBrowserRouter([
         },
         {
           path: 'contact',
-          element: <Contact></Contact>
+          element: <Private><Contact></Contact></Private>
         },
         {
           path:'register',
@@ -39,5 +41,12 @@ export const router = createBrowserRouter([
           element: <Login></Login>
         }
       ]
+    },
+    {
+      path: '/dashboard',
+      errorElement:<Error></Error>,
+      element: <DashBoardLayout></DashBoardLayout>,
+      children:[{}]
     }
+
   ])

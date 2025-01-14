@@ -20,7 +20,7 @@ const auth = getAuth(app);
 // console.log(auth, "here auth");
 
 const AuthProvider = ({ children }) => {
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   const [user, setuser] = useState(null);
   // for data loading
   const [lodings, setloadings] = useState(false);
