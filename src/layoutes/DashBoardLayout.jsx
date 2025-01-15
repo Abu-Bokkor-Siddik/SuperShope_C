@@ -1,9 +1,13 @@
+import { Outlet } from "react-router"
+import Sidebar from "../Components/dashboard/Sidebar"
 
 
 const DashBoardLayout = () => {
   return (
     <div>
-      <h1>dashboard</h1>
+     <div><Sidebar></Sidebar></div>
+     <div><Outlet></Outlet></div>
+     
     </div>
   )
 }
