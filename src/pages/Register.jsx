@@ -4,17 +4,16 @@ import { Link, useNavigate } from "react-router";
 
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
-import  { AuthContexts } from "../AuthProvider/AuthProvider";
+import { AuthContexts } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 // import AuthProvider from "../AuthProvider/AuthProvider";
-
 const Register = () => {
   // const auth = useContext(AuthProvider)
   // const auth = useAuth()
   const { registerWithEmail } = useContext(AuthContexts);
   // console.log(auth)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -22,28 +21,26 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    
     const email = data?.email;
     const role = "buyer";
     const status = "pending";
     const wishlist = [];
-    const userInfo = {email,role,status,wishlist}
-    registerWithEmail(data?.email, data?.password).then(()=>{
-      axios.post('http://localhost:3000/users',userInfo)
-      .then(res => {
+    const userInfo = { email, role, status, wishlist };
+    registerWithEmail(data?.email, data?.password).then(() => {
+      axios.post("http://localhost:3000/users", userInfo).then((res) => {
         if (res?.data?.insertedId) {
           Swal.fire({
             title: "Register Successfully",
             icon: "success",
-            draggable: true
+            draggable: true,
           });
         }
-        navigate("/")
-        console.log(res.data,'data')
-        })
-    })
-    console.log(userInfo,'info here')
-   
+        navigate("/");
+        console.log(res.data, "data");
+      });
+    });
+    console.log(userInfo, "info here");
+
     // console.log(data);
   };
   // console.log(register)

@@ -22,8 +22,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [loading, setloading] = useState(false);
   const [user, setuser] = useState(null);
-  // for data loading
-  const [lodings, setloadings] = useState(false);
+ 
 
   // register
   const registerWithEmail = (email, password) => {
@@ -53,25 +52,30 @@ const AuthProvider = ({ children }) => {
   // onauthState
   useEffect(() => {
     const subricribe = onAuthStateChanged(auth, (currect) => {
-      const logeruser = {email:currect?.email}
+      const logeruser = { email: currect?.email };
       setuser(currect);
-      console.log(currect,logeruser, "currectuser");
-      
+      console.log(currect, logeruser, "currectuser");
+
       // console.log('user ',logeruser)
-      if(currect){
-          axios.post('http://localhost:3000/authentication',logeruser,{withCredentials:true})
-          .then(res => {
+      if (currect) {
+        axios
+          .post("http://localhost:3000/authentication", logeruser, {
+            withCredentials: true,
+          })
+          .then((res) => {
             if (res?.data) {
-              localStorage.setItem('access_token',res?.data?.token)
+              localStorage.setItem("access_token", res?.data?.token);
               setloading(false);
-            }})
-      }else{
-        axios.post('something',logeruser,{withCredentials:true})
+            }
+          });
+      } else {
+        axios
+          .post("something", logeruser, { withCredentials: true })
 
-        .then(res => {
-          console.log(res.data)})
-
-       }
+          .then((res) => {
+            console.log(res.data);
+          });
+      }
     });
     return () => {
       subricribe();

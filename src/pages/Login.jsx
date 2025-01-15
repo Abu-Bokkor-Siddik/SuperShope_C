@@ -1,11 +1,11 @@
-import { Link, Navigate } from "react-router";
+import { Link } from "react-router";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContexts } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { logins,user } = useContext(AuthContexts);
-  console.log(user,'user here')
+  const { logins, user } = useContext(AuthContexts);
+  console.log(user, "user here");
   // console.log(logins)
   const {
     register,
@@ -13,11 +13,11 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) =>{
- logins(data?.email,data?.password)
- Navigate('/')
+  const onSubmit = (data) => {
+    logins(data?.email, data?.password);
+    // Navigate("/");
     //  console.log(data)
-    };
+  };
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
